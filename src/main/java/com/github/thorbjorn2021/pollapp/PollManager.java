@@ -9,27 +9,25 @@ import java.util.Map;
 @Component
 public class PollManager {
 
-    private Map<String, User> users = new HashMap<String, User>();
-    private Map<String, Poll> polls = new HashMap<String, Poll>();
+    private final Map<String, User> users = new HashMap<String, User>();
+    private final Map<String, Poll> polls = new HashMap<String, Poll>();
 
     public PollManager() {
     }
 
-    public void addUser(String userName, String email) {
-        if(users.containsKey(userName)) {
+    public void addUser(User user) {
+        if(users.containsKey(user.getUsername())) {
             throw new IllegalArgumentException("Username is already in use");
         }
-        User user = new User(userName, email);
-        users.put(userName, user);
+        users.put(user.getUsername(), user);
     }
 
-    public void listUsers() {
-        for(User user : users.values()) {
-            System.out.println(user);
-        }
+    public Map<String, User> getUsers() {
+        return users;
     }
 
-    public void addPoll(String question, Instant publishedAt, Instant validUntil, String poll_id) {
+    public void addPoll(String question, Instant publishedAt, Instant validUntil) {
+        String poll_id = String.valueOf(polls.size());
         if(polls.containsKey(poll_id)) {
         throw new IllegalArgumentException("Duplicate poll-id!");
     }
