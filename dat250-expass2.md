@@ -1,5 +1,5 @@
 
-# Report on the work done with the backend of the Poll application so far.
+# Report
 
 ## Technical problems
 Installation went smooth, except for installing WSL. I could not install WSL by following the tutorial, but troubleshooting this problem lead me to download WSL from Microsoft Store instead. This proved to be the solution.
