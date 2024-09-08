@@ -26,16 +26,12 @@ public class PollManager {
         return users;
     }
 
-    public void addPoll(String question, Instant publishedAt, Instant validUntil) {
-        String poll_id = String.valueOf(polls.size());
-        if(polls.containsKey(poll_id)) {
-        throw new IllegalArgumentException("Duplicate poll-id!");
-    }
-        Poll poll = new Poll(question, publishedAt, validUntil);
-        polls.put(poll_id, poll);
-
+    public void addPoll(String id, Poll poll) {
+        polls.put(id, poll);
     }
 
-
+    public Map<String, Poll> getPolls() {
+        return polls;
+    }
 
 }
