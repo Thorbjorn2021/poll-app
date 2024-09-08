@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Polldata {
     private String question;
-    private String duration;
+    private long duration;
     private User user;
     private boolean isPrivate;
     private List<String> options;
 
-    public Polldata(String question, String duration, User user, boolean isPrivate, List<String> options) {
+    public Polldata(String question, long duration, User user, boolean isPrivate, List<String> options) {
         this.question = question;
         this.duration = duration;
         this.user = user;
@@ -25,11 +25,11 @@ public class Polldata {
         this.question = question;
     }
 
-    public String getDuration() {
+    public long getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(long duration) {
         this.duration = duration;
     }
 
