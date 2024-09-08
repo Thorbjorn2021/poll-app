@@ -63,6 +63,7 @@ public class PollController {
         if(pollManager.getUsers().containsKey(user.getUsername())){
             poll.setId(String.valueOf(counter.incrementAndGet()));
             pollManager.addPoll(poll.getId(), poll);
+            user.addPoll(poll);
             return ResponseEntity.created(URI.create("/poll/" + poll.getId())).body(poll);
         }
         else{

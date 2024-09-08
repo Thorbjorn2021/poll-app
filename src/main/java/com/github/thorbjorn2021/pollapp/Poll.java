@@ -1,5 +1,8 @@
 package com.github.thorbjorn2021.pollapp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +12,9 @@ public class Poll {
     private Instant publishedAt;
     private Instant validUntil;
     private List<VoteOption> options;
+    @JsonManagedReference
     private List<Vote> votes;
+    @JsonIgnore
     private User creator;
     private boolean isPrivate;
     private String id;

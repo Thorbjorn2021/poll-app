@@ -1,12 +1,17 @@
 package com.github.thorbjorn2021.pollapp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
     private String username;
     private String email;
+    @JsonIgnore
     private List<Poll> createdPolls;
+    @JsonIgnore
     private List<Vote> votes;
 
     public User(String username, String email) {

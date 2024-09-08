@@ -1,10 +1,15 @@
 package com.github.thorbjorn2021.pollapp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.Instant;
 
 public class Vote {
     private Instant publishedAt;
+    @JsonBackReference
     private Poll poll;
+    @JsonBackReference
     private User user;
     private VoteOption voteOption;
 
