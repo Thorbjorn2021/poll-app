@@ -1,6 +1,7 @@
 package com.github.thorbjorn2021.pollapp;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Poll {
@@ -8,6 +9,7 @@ public class Poll {
     private Instant publishedAt;
     private Instant validUntil;
     private List<VoteOption> options;
+    private List<Vote> votes;
     private User creator;
     private boolean isPrivate;
     private String id;
@@ -19,6 +21,7 @@ public class Poll {
         this.creator = creator;
         this.isPrivate = isPrivate;
         this.options = options;
+        this.votes = new ArrayList<>();
     }
     public Poll(String question, long durationSec, User creator, boolean isPrivate, List<VoteOption> options) {
         this.question = question;
@@ -27,6 +30,7 @@ public class Poll {
         this.creator = creator;
         this.isPrivate = isPrivate;
         this.options = options;
+        this.votes = new ArrayList<>();
     }
 
     public boolean isPrivate() {
