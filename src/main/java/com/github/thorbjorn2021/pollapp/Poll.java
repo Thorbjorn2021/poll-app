@@ -1,22 +1,40 @@
 package com.github.thorbjorn2021.pollapp;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class Poll {
     private String question;
     private Instant publishedAt;
     private Instant validUntil;
-    private Set<VoteOption> options;
+    private List<VoteOption> options;
     private User creator;
+    private boolean isPrivate;
+    private String id;
 
-    public Poll(String question, Instant publishedAt, Instant validUntil, User creator) {
+    public Poll(String question,Instant publishedAt, Instant validUntil, User creator, boolean isPrivate, List<VoteOption> options) {
         this.question = question;
         this.publishedAt = publishedAt;
         this.validUntil = validUntil;
         this.creator = creator;
-        options = new HashSet<>();
+        this.isPrivate = isPrivate;
+        this.options = options;
+    }
+    public Poll(String question, long durationSec, User creator, boolean isPrivate, List<VoteOption> options) {
+        this.question = question;
+        this.publishedAt = Instant.now();
+        this.validUntil = Instant.now().plusSeconds(durationSec);
+        this.creator = creator;
+        this.isPrivate = isPrivate;
+        this.options = options;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
     }
 
     public String getQuestion() {
@@ -43,11 +61,11 @@ public class Poll {
         this.validUntil = validUntil;
     }
 
-    public Set<VoteOption> getOptions() {
+    public List<VoteOption> getOptions() {
         return options;
     }
 
-    public void setOptions(Set<VoteOption> options) {
+    public void setOptions(List<VoteOption> options) {
         this.options = options;
     }
 
@@ -57,5 +75,17 @@ public class Poll {
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+    public String getId() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return question + " with options " + options + " by user " + creator;
     }
 }
