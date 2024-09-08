@@ -1,10 +1,38 @@
 package com.github.thorbjorn2021.pollapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String username;
     private String email;
+    private List<Poll> createdPolls;
+    private List<Vote> votes;
 
-    public User(){};
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+        this.createdPolls = new ArrayList<Poll>();
+        this.votes = new ArrayList<Vote>();
+    }
+
+    public List<Poll> getCreatedPolls() {
+        return createdPolls;
+    }
+
+    public void addPoll(Poll poll) {
+        if(!createdPolls.contains(poll)) {
+            createdPolls.add(poll);
+        }
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void addVote(Vote vote) {
+        votes.add(vote);
+    }
 
     public String getUsername() {
         return username;
@@ -22,17 +50,10 @@ public class User {
         this.email = email;
     }
 
-    public User(String username, String email) {
-        this.username = username;
-        this.email = email;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 '}';
     }
-
-
 }
