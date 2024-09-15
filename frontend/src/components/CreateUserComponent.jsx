@@ -9,8 +9,9 @@ export default function CreateUserComponent({onUserCreate, user}){
     };
     if(user === null){
     return(
-        <div>
-            <h2>Create User </h2>
+
+        <div className="container">
+            <h2 >Create User </h2>
             <input type="text"
                    value={name}
                    onChange={(e) => setName(e.target.value)}
@@ -24,10 +25,11 @@ export default function CreateUserComponent({onUserCreate, user}){
             <button onClick={handleSubmit}>Submit</button>
 
         </div>
+
     );
     }
     return (
-        <p>Welcome {name}!</p>
+        <p style={{fontWeight: "bold", fontSize: "24px"}}>Welcome {name}!</p>
 
     )
 }

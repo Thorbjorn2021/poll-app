@@ -1,5 +1,6 @@
 import '../style.css'
 import {useState} from "react";
+import pollData from "../mock/mockdata.js";
 
 function CreatePollComponent() {
     const [question, setQuestion] = useState('');
@@ -7,6 +8,7 @@ function CreatePollComponent() {
 
     const addOption = () => setOptions([...options, '']);
     const removeOption = (index) => setOptions(options.filter((_, i) => i !== index));
+
     const handleOptionChange = (e, index) => {
         const newOptions = options.slice();
         newOptions[index] = e.target.value;
@@ -16,7 +18,37 @@ function CreatePollComponent() {
         e.preventDefault();
         console.log('Poll Question:', question);
         console.log('Poll Options:', options);
+        const pollData = {
+            question,
+            options: options
+        }
+        console.log(pollData)
+        createPoll(pollData)
     };
+
+    const createPoll = (pollData) => {
+        fetch("http://localhost:8080/pollapp/poll", {
+            method:"POST",
+            headers: {
+                "Content-Type" :"application/json"
+            },
+            body: JSON.stringify(pollData)
+        })
+            .then((response) => {
+                if(!response.ok){
+                    throw new Error("Error, did not create Poll!")
+                }
+                return response.json()
+            })
+            .then((data) => {
+                console.log("Succesfully created Poll: ", data)
+            })
+            .catch((error) => {
+                console.error("Error: ", error)
+                alert("Error when creating the poll!")
+            })
+
+    }
 
     return (
         <form onSubmit={handleSubmit}>
