@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/pollapp")
+@CrossOrigin
 public class PollController {
 
     private final PollManager pollManager;
