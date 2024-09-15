@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -72,6 +73,9 @@ public class PollController {
     @GetMapping("/polls")
     public ResponseEntity<Map<String, Poll>> getAllPolls() {
         Map<String, Poll> polls = pollManager.getPolls();
-        return ResponseEntity.ok(polls);
+        if(!pollManager.getUsers().isEmpty()){
+            return ResponseEntity.ok(polls);
+        }
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
