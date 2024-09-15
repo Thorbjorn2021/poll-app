@@ -38,6 +38,11 @@ public class Poll {
         this.votes = new ArrayList<>();
     }
 
+    public Poll(String question, List<VoteOption> options) {
+        this.question = question;
+        this.options = options;
+    }
+
     public boolean isPrivate() {
         return isPrivate;
     }

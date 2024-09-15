@@ -17,6 +17,13 @@ public class Polldata {
         this.options = options;
     }
 
+    public Polldata(String question, List<String> options) {
+        this.question = question;
+        this.options = options;
+    }
+
+    public Polldata(){}
+
     public String getQuestion() {
         return question;
     }

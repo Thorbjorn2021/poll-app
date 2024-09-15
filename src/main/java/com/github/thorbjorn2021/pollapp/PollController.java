@@ -45,7 +45,7 @@ public class PollController {
 
     @PostMapping("/poll")
     public ResponseEntity<?> createPoll(@RequestBody Polldata polldata) {
-
+        System.out.println("Creating poll, " + polldata);
         List<VoteOption> options = new ArrayList<>();
         for(int i = 0; i < polldata.getOptions().size(); i++){
             String caption = polldata.getOptions().get(i);
@@ -53,14 +53,11 @@ public class PollController {
         }
         Poll poll = new Poll(
                 polldata.getQuestion(),
-                polldata.getDuration(),
-                polldata.getUser(),
-                polldata.isPrivate()
-                ,
                 options
         );
         //Checking to see if user exist
-        User user = poll.getCreator();
+        //User user = poll.getCreator();
+        User user = new User("tobben", "tobben@example.com");
         if(pollManager.getUsers().containsKey(user.getUsername())){
             poll.setId(String.valueOf(counter.incrementAndGet()));
             pollManager.addPoll(poll.getId(), poll);

@@ -13,6 +13,7 @@ public class PollManager {
     private final Map<String, Poll> polls = new HashMap<String, Poll>();
 
     public PollManager() {
+        addUser(new User("tobben", "tobben@example.com"));
     }
 
     public void addUser(User user) {
