@@ -12,8 +12,20 @@ Finally, the result from running CreditCardsMainTest.java:
 
 ![test_succesful](https://github.com/user-attachments/assets/a70a76d8-5bbf-418f-ba2f-dc7b73941a4f)
 
-
 **Building your own dockerized application**
+
+For my base image I used the latest tag, with gradle 8.10 and java 21.
+
+dockerfile:
+
+![dockerfile](https://github.com/user-attachments/assets/6c49f602-e706-4c08-8390-b7ff19b27ea6)
+
+
+dockerfile built succesful:
+
+![docker_build_succesful](https://github.com/user-attachments/assets/93f0d8c2-4fb3-4eac-898c-af7836d74389)
+
+
 
 
 ## Technical problems
