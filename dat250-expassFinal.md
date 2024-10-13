@@ -33,6 +33,8 @@ container succesfully running and succesfully posted GET request for users:
 Had troubles connecting the jpa_client to the tables due to restricted access. Fixed this by running
 running the script in SQL client in DBeaver.
 
+[Link to code](https://github.com/Thorbjorn2021/poll-app/tree/main)
+
 ## Pending issues
 Did not add the last "improvements", such as creating a new user, and using multi-stage build.
 ## Link to code written in this assignment
