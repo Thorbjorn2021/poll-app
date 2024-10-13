@@ -4,6 +4,7 @@
 ## Completed tasks
 
 **Using a Dockerized application: PostresSQL**
+
 I pulled the postgres image and to run the image, I set "-p" with 5432:5432 and "-e" with POSTGRES_PASSWORD = mysecretpassword , as instructed in the image documentation. I edited build.gradle.kts and persistence.xml as instructed.
 
 Further on, I created the jpa_client and set password as instructed. I used SQL client in DBeaver to generate the tables. I then gave permission to the jpa_client with the script "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO jpa_client;"
