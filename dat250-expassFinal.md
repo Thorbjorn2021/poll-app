@@ -38,6 +38,3 @@ the script for granting the jpa_client acccess to all tables with SQL client in 
 
 ## Pending issues
 Did not add the last "improvements", such as creating a new user, and using multi-stage build.
-## Link to code written in this assignment
-[Link](
-
