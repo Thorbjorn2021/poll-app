@@ -25,8 +25,9 @@ dockerfile built succesful:
 
 ![docker_build_succesful](https://github.com/user-attachments/assets/93f0d8c2-4fb3-4eac-898c-af7836d74389)
 
+container succesfully running and succesfully posted GET request for users:
 
-
+![container_running_succesfully](https://github.com/user-attachments/assets/5ec27fd9-d433-4fd5-b643-a599b6140182)
 
 ## Technical problems
 Had troubles connecting the jpa_client to the tables due to restricted access. Fixed this by running
